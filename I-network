@@ -64,7 +64,9 @@ TEXT
 #
 
 ${if_existing /proc/net/route wlp6s0}
-${color4}WiFi - ${wireless_essid wlp6s0} - ${addr wlp6s0} ${hr 3}
+${color4}WiFi ${hr 3}${color0}
+SSID ${goto 100}${wireless_essid wlp6s0}
+Address ${goto 100}${addr wlp6s0}
 ${voffset -16}
 
 ${color2}    DOWNLOAD SPEED${color0}${alignr}${downspeedf wlp6s0} KiB/s
@@ -76,6 +78,7 @@ ${endif}
 
 ${if_existing /proc/net/route enp5s0f2}
 ${color4}Ethernet Integrata - ${addr enp5s0f2} ${hr 3}
+Address ${goto 100}${addr enp5s0f2}
 ${voffset -16}
 
 ${color2}    DOWNLOAD SPEED${color0}${alignr}${downspeedf enp5s0f2} KiB/s
