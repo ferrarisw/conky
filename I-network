@@ -1,0 +1,81 @@
+# **********************************************************************
+# "CPU Panel (8-core)" theme for Conky by Tony George (teejee2008@gmail.com)
+# Modified by autocrosser1
+# Webpage: http://teejeetech.blogspot.in/
+# **********************************************************************
+
+
+background yes
+double_buffer yes
+
+alignment top_left
+
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+gap_x 0
+gap_y 0
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 26
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 500 0
+stippled_borders 0
+update_interval 0.5
+uppercase no
+use_spacer none
+
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftalpha 0.1
+xftfont  Roboto CE:size=10
+color0 white
+color1 EAEAEA
+color2 06FF1C
+color3 D9DFDA
+color4 0478FF	
+color5 A40810
+wlan wlp6s0
+
+TEXT
+#
+# WiFi wlp6s0
+# LAN integrata enp5s0f2
+#
+
+${if_existing /proc/net/route wlp6s0}
+${color4}WiFi - ${wireless_essid wlp6s0} ${addr wlp6s0} ${hr 3}
+${voffset -16}
+${color2}DOWNLOAD SPEED${color0}${alignr}${downspeedf wlp6s0} KiB/s
+${color0}${downspeedgraph wlp6s0 50,500 06FF1C 06FF1C s}${voffset -8}
+${color5}UPLOAD SPEED ${color0}${alignr}${upspeedf wlp6s0} KiB/s 
+${color0}${upspeedgraph wlp6s0 50,500 A40810 A40810 s}${color2}${voffset -8} 
+${endif}
+
+${if_existing /proc/net/route enp5s0f2}
+${color4}Ethernet Integrata - ${addr enp5s0f2} ${hr 3}
+${voffset -16}
+${color2}DOWNLOAD SPEED${color0}${alignr}${downspeedf enp5s0f2} KiB/s
+${color0}${downspeedgraph enp5s0f2 50,500 06FF1C 06FF1C s}${voffset -8}
+${color5}UPLOAD SPEED ${color0}${alignr}${upspeedf enp5s0f2} KiB/s 
+${color0}${upspeedgraph enp5s0f2 50,500 A40810 A40810 s}${color2}${voffset -8} 
+${endif}
