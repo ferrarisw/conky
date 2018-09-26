@@ -7,10 +7,10 @@
 killall conky
 
 sleep 1
-conky -c $HOME/workspace/conky/I-system &
+conky -c $HOME/workspace/conky/system &
 sleep 1
-conky -c $HOME/workspace/conky/I-clock &
-sleep 1
-conky -c $HOME/workspace/conky/I-network &
+conky -c $HOME/workspace/conky/clock &
+# sleep 1
+# conky -c $HOME/workspace/conky/network &
 
 exit
