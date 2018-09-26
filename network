@@ -47,7 +47,7 @@ conky.config = {
 conky.text = [[
 
 ${hr 2}
-External IP - ${execi 1000  wget -q -O- http://ipecho.net/plain; echo}
+External IP - ${execi 30  wget -q -O- http://ipecho.net/plain; echo}
 
 WLAN - ${exec ip addr show wlp6s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}
 
