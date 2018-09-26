@@ -1,13 +1,13 @@
 conky.config = {
-	update_interval = 1,
+	update_interval = 0.5,
 	cpu_avg_samples = 2,
 	net_avg_samples = 2,
 	out_to_console = false,
 	override_utf8_locale = true,
 	double_buffer = true,
-	draw_borders = false,
+	draw_borders = true,
 	draw_graph_borders = true,
-	draw_outline = false,
+	draw_outline = true,
 	draw_shades = false,
 	no_buffers = true,
 	text_buffer_size = 32768,
@@ -39,12 +39,12 @@ conky.config = {
 	alignment = 'top_right',
 	
 	color0 = white,
-	color1 = '#EAEAEA',
-	color2 = '#06FF1C',
-	color3 = '#D9DFDA',
-	color4 = '#0478FF',
-	color2 = '#A40810',
-	}
+	color1 = 'EAEAEA',
+	color2 = '06FF1C',
+	color3 = 'D9DFDA',
+	color4 = '0478FF',
+	color2 = 'A40810',
+	};
 
 conky.text = [[
 	${voffset -10}
@@ -62,7 +62,7 @@ conky.text = [[
 	${color4}${hr 3}${color0}
 	
 	RAM $alignc $mem / $memmax $alignr $memperc%
-	$membar
+	${membar}
 	SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 	${swapbar}
 
@@ -76,21 +76,21 @@ conky.text = [[
 	
 	${voffset -10}
 	${color4}CPU 0${color0}   ${execi 2 sensors|grep 'Core 0'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${alignr}${cpu cpu0} %${color5} 
-	${cpugraph cpu0}
+	${cpugraph cpu0 FFFF00 FF0000}
 	${color4}CPU 1${color0}   ${execi 2 sensors|grep 'Core 1'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${alignr}${cpu cpu1} %${color5} 
-	${cpugraph cpu1}
+	${cpugraph cpu1 FFFF00 FF0000}
 	${color4}CPU 2${color0}   ${execi 2 sensors|grep 'Core 2'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${alignr}${cpu cpu2} %${color5} 
-	${cpugraph cpu2}
-	${color4}CPU 3${color0}   ${execi 2 sensors|grep 'Core 3'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${alignr}${cpu cpu3} %${color5} 
-	${cpugraph cpu3}
+	${cpugraph cpu2 FFFF00 FF0000}
+	${color4}CPU 3${color0 }   ${execi 2 sensors|grep 'Core 3'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${alignr}${cpu cpu3} %${color5} 
+	${cpugraph cpu3 FFFF00 FF0000}
 	${color4}CPU 4${color0}   ${execi 2 sensors|grep 'Core 0'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${alignr}${cpu cpu4} %${color5} 
-	${cpugraph cpu4}
+	${cpugraph cpu4 FFFF00 FF0000}
 	${color4}CPU 5${color0}   ${execi 2 sensors|grep 'Core 1'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${alignr}${cpu cpu5} %${color5} 
-	${cpugraph cpu5}
+	${cpugraph cpu5 FFFF00 FF0000}
 	${color4}CPU 6${color0}   ${execi 2 sensors|grep 'Core 2'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${alignr}${cpu cpu6} %${color5} 
-	${cpugraph cpu6}
+	${cpugraph cpu6 FFFF00 FF0000}
 	${color4}CPU 7${color0}   ${execi 2 sensors|grep 'Core 3'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${alignr}${cpu cpu7} %${color5} 
-	${cpugraph cpu7}${color0}
+	${cpugraph cpu7 FFFF00 FF0000}${color0}
 	${top name 1} $alignr ${top cpu 1} % 
 	${top name 2} $alignr ${top cpu 2} % 
 	${top name 3} $alignr ${top cpu 3} % 

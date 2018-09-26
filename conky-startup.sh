@@ -10,7 +10,7 @@ sleep 1
 conky -c $HOME/workspace/conky/system &
 sleep 1
 conky -c $HOME/workspace/conky/clock &
-# sleep 1
-# conky -c $HOME/workspace/conky/network &
+sleep 1
+conky -c $HOME/workspace/conky/network &
 
 exit
