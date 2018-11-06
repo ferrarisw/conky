@@ -87,9 +87,9 @@ conky.text = [[
 	${top name 4} $alignr ${top cpu 4} % 
 	${top name 5} $alignr ${top cpu 5} %
 
-${color #76b900}${font DejaVu Sans Monospace:size=16}GPU		${hr 4}${color}${font}
+${color #76b900}${font DejaVu Sans Monospace:size=16}GPU - ${exec nvidia-smi --query-gpu=gpu_name --format=csv,noheader,nounits}	${hr 4}${color}${font}
 
-GPU:${color #76b900}${goto 250}${exec nvidia-smi --query-gpu=gpu_name --format=csv,noheader,nounits} (${exec nvidia-settings -query [gpu:0]/NvidiaDriverVersion -t})  $color
+Driver Version${goto 250}${exec nvidia-settings -query [gpu:0]/NvidiaDriverVersion -t} $color
 GPU Temperature ${color}${goto 250}${execi 60 nvidia-settings -query [gpu:0]/GPUCoreTemp -t} °C
 GPU Clock ${color}${goto 250}${execi 60 nvidia-settings -query [gpu:0]/GPUCurrentClockFreqs -t} Mhz
 GPU Utilization (gr, enc, dec) ${color}${goto 250}${exec nvidia-settings -query [gpu:0]/GPUUtilization -t | cut -d"," -f 1 | cut -d"=" -f 2} % ${goto 320} ${execi 60 nvidia-settings -query [gpu:0]/VideoEncoderUtilization -t} % ${goto 390} ${execi 60 nvidia-settings -query [gpu:0]/VideoDecoderUtilization -t} %
