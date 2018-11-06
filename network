@@ -21,7 +21,7 @@ conky.config = {
 	xinerama_head = 1,
 	alignment = 'bottom_middle',
 	gap_x = 0,
-	gap_y = 33,
+	gap_y = 0,
 	draw_shades = false,
 	draw_outline = false,
 	draw_borders = false,
@@ -40,30 +40,31 @@ conky.config = {
 	color2 = '#06FF1C',
 	color3 = '#D9DFDA',
 	color4 = '#0478FF',
-	color2 = '#A40810',
+	color5 = '#A40810',
+	colornvidia = '#76b900',
 	};
 	
 conky.text = [[
 ${color4}${font DejaVu Sans Monospace:size=16}NETWORK		${hr 4}
-${font DejaVu Sans Monospace:size=12}
+
+
 External IP - ${execi 30  wget -q -O- http://ipecho.net/plain; echo}
 
 ${if_existing /sys/class/net/wlp6s0/operstate}${font DejaVu Sans Monospace:size=12}
 WLAN - wlp6s0 - ${exec ip addr show wlp6s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}${font}
 
 Down${goto 80}${downspeed wlp6s0}
-${downspeedgraph wlp6s0 45,500 FF00FF FF0000}
+${downspeedgraph wlp6s0 40,500 FF00FF FF0000}
 Up${goto 80}${upspeed wlp6s0} 
-${upspeedgraph wlp6s0 45,500 FF00FF FF0000}
-${endif}
+${upspeedgraph wlp6s0 40,500 FF00FF FF0000}${endif}
 
 ${if_existing /sys/class/net/enx000ec6c41f01/operstate}${font DejaVu Sans Monospace:size=12}
 LAN - enx000ec6c41f01 - ${exec ip addr show enx000ec6c41f01 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}${font}
 
 Down${goto 80}${downspeed enx000ec6c41f01}
-${downspeedgraph enx000ec6c41f01 45,500 FF00FF FF0000}
+${downspeedgraph enx000ec6c41f01 40,500 FF00FF FF0000}
 Up${goto 80}${upspeed enx000ec6c41f01} 
-${upspeedgraph enx000ec6c41f01 45,500 FF00FF FF0000}
+${upspeedgraph enx000ec6c41f01 40,500 FF00FF FF0000}
 ${endif}
 
 ]];
