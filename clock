@@ -29,7 +29,7 @@ conky.config = {
 	draw_borders = false,
 	draw_graph_borders = false,
 	use_xft = true,
-	font = 'Ubuntu CE:size=10',
+	font = 'font DejaVu Sans Monospace:size=10',
 	xftalpha = 0.8,
 	uppercase = false,
 	default_color = 'white',
@@ -47,6 +47,6 @@ conky.config = {
 
 conky.text = [[
 
-${font Trebuchet MS:size=80}  ${alignc}${time %k:%M}${font Trebuchet MS:size=11}
-${font Trebuchet MS:size=50}  ${alignc}${time %a %d %b %Y}${font Trebuchet MS:size=11}
+${font DejaVu Sans Monospace:size=80}  ${alignc}${time %k:%M}
+${font DejaVu Sans Monospace:size=50}  ${alignc}${time %a %d %b %Y}
 ]];

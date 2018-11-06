@@ -27,7 +27,7 @@ conky.config = {
 	draw_borders = false,
 	draw_graph_borders = false,
 	use_xft = true,
-	font = 'Ubuntu CE:size=10',
+	font = 'DejaVu Sans Monospace:size=10',
 	xftalpha = 0.8,
 	uppercase = false,
 	default_color = 'white',
@@ -44,27 +44,26 @@ conky.config = {
 	};
 	
 conky.text = [[
-
-
-${color4}NETWORK		${hr 4}
+${color4}${font DejaVu Sans Monospace:size=16}NETWORK		${hr 4}
+${font DejaVu Sans Monospace:size=12}
 External IP - ${execi 30  wget -q -O- http://ipecho.net/plain; echo}
 
-${if_existing /sys/class/net/wlp6s0/operstate}
-WLAN - wlp6s0 - ${exec ip addr show wlp6s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}
+${if_existing /sys/class/net/wlp6s0/operstate}${font DejaVu Sans Monospace:size=12}
+WLAN - wlp6s0 - ${exec ip addr show wlp6s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}${font}
 
 Down${goto 80}${downspeed wlp6s0}
-${downspeedgraph wlp6s0 60,500 FF00FF FF0000}
+${downspeedgraph wlp6s0 45,500 FF00FF FF0000}
 Up${goto 80}${upspeed wlp6s0} 
-${upspeedgraph wlp6s0 60,500 FF00FF FF0000}
+${upspeedgraph wlp6s0 45,500 FF00FF FF0000}
 ${endif}
 
-${if_existing /sys/class/net/enx000ec6c41f01/operstate}
-LAN - enx000ec6c41f01 - ${exec ip addr show enx000ec6c41f01 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}
+${if_existing /sys/class/net/enx000ec6c41f01/operstate}${font DejaVu Sans Monospace:size=12}
+LAN - enx000ec6c41f01 - ${exec ip addr show enx000ec6c41f01 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}${font}
 
 Down${goto 80}${downspeed enx000ec6c41f01}
-${downspeedgraph enx000ec6c41f01 60,500 FF00FF FF0000}
+${downspeedgraph enx000ec6c41f01 45,500 FF00FF FF0000}
 Up${goto 80}${upspeed enx000ec6c41f01} 
-${upspeedgraph enx000ec6c41f01 60,500 FF00FF FF0000}
+${upspeedgraph enx000ec6c41f01 45,500 FF00FF FF0000}
 ${endif}
 
 ]];

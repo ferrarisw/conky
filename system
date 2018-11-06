@@ -29,7 +29,7 @@ conky.config = {
 	draw_borders = false,
 	draw_graph_borders = false,
 	use_xft = true,
-	font = 'Ubuntu CE:size=10',
+	font = 'DejaVu Sans Monospace:size=10',
 	xftalpha = 0.8,
 	uppercase = false,
 	default_color = 'white',
@@ -46,14 +46,14 @@ conky.config = {
 	};
 
 conky.text = [[
-	${voffset -10}
-	${color4}OS${goto 100}${color0} ${execi 10800 cat /etc/issue.net}
-	${color4}Kernel${goto 100}${color0} ${kernel}
-	${color4}Hostname${goto 100}${color0} ${uid_name 1000} @ ${nodename}
-	${color4}Uptime${goto 100}${color0} ${uptime}
-	${color4}Processes${goto 100}${color0} ${processes} ($running_processes running)
+	${font DejaVu Sans Monospace:size=13}${voffset -10}
+	${color4}OS${goto 120}${color0} ${execi 10800 cat /etc/issue.net}
+	${color4}Kernel${goto 120}${color0} ${kernel}
+	${color4}Hostname${goto 120}${color0} ${uid_name 1000} @ ${nodename}
+	${color4}Uptime${goto 120}${color0} ${uptime}
+	${color4}Processes${goto 120}${color0} ${processes} ($running_processes running)
 	
-	RAM $alignc $mem / $memmax $alignr $memperc%
+	${font DejaVu Sans Monospace:size=10}RAM $alignc $mem / $memmax $alignr $memperc%
 	${membar}
 	SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 	${swapbar}
@@ -88,5 +88,10 @@ conky.text = [[
 	${top name 3} $alignr ${top cpu 3} % 
 	${top name 4} $alignr ${top cpu 4} % 
 	${top name 5} $alignr ${top cpu 5} % 
+	${top name 6} $alignr ${top cpu 6} % 
+	${top name 7} $alignr ${top cpu 7} % 
+	${top name 8} $alignr ${top cpu 8} % 
+	${top name 9} $alignr ${top cpu 9} % 
+	${top name 10} $alignr ${top cpu 10} % 
 
 ]];
