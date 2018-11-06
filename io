@@ -54,27 +54,33 @@ ${color4}I/O		${hr 4}
 
 
 ${color4}/		${hr 2}
+
 READ		${diskio_read sdb1}
 ${diskiograph_read sdb1 40,500 FFFF00 FF0000}
 WRITE		${diskio_write sdb1}
 ${diskiograph_write sdb1 40,500 FFFF00 FF0000}
 
-${color4}/home		${hr 2}
+
+/home		${hr 2}
+
 READ		${diskio_read sdb2}
 ${diskiograph_read sdb2 40,500 FFFF00 FF0000}
 WRITE		${diskio_write sdb2}
 ${diskiograph_write sdb2 40,500 FFFF00 FF0000}
 
-${color4}SWAP		${hr 2}
-READ		${diskio_read sdc1}
-${diskiograph_read sdc1 40,500 FFFF00 FF0000}
-WRITE		${diskio_write sdc1}
-${diskiograph_write sdc1 40,500 FFFF00 FF0000}
 
-${color4}HD900		${hr 2}
+HD900		${hr 2}
+
 READ		${diskio_read sdc4}
 ${diskiograph_read sdc4 40,500 FFFF00 FF0000}
 WRITE		${diskio_write sdc4}
 ${diskiograph_write sdc4 40,500 FFFF00 FF0000}
 
+
+SWAP		${hr 2}
+
+READ		${diskio_read sdc1}
+${diskiograph_read sdc1 40,500 FFFF00 FF0000}
+WRITE		${diskio_write sdc1}
+${diskiograph_write sdc1 40,500 FFFF00 FF0000}
 ]];

@@ -21,7 +21,7 @@ conky.config = {
 	border_inner_margin = 5,
 	border_outer_margin = 0,
 	xinerama_head = 1,
-	alignment = 'bottom_right',
+	alignment = 'top_middle',
 	gap_x = 0,
 	gap_y = 33,
 	draw_shades = false,
@@ -36,7 +36,6 @@ conky.config = {
 	own_window_colour = '#000000',
 	minimum_width = 500, 
 	minimum_height = 0,
-	alignment = 'middle_middle',
 	
 	color0 = white,
 	color1 = '#EAEAEA',

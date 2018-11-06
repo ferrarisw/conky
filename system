@@ -21,7 +21,7 @@ conky.config = {
 	border_inner_margin = 5,
 	border_outer_margin = 0,
 	xinerama_head = 1,
-	alignment = 'bottom_right',
+	alignment = 'top_right',
 	gap_x = 0,
 	gap_y = 33,
 	draw_shades = false,
@@ -36,7 +36,6 @@ conky.config = {
 	own_window_colour = '#000000',
 	minimum_width = 500, 
 	minimum_height = 0,
-	alignment = 'top_right',
 	
 	color0 = white,
 	color1 = 'EAEAEA',
@@ -53,13 +52,6 @@ conky.text = [[
 	${color4}Hostname${goto 100}${color0} ${uid_name 1000} @ ${nodename}
 	${color4}Uptime${goto 100}${color0} ${uptime}
 	${color4}Processes${goto 100}${color0} ${processes} ($running_processes running)
-	
-	${color4}${hr 3}${font}
-	${goto 80}FREE${goto 150}USED${goto 220}TOTAL${goto 290}USAGE${color1}${voffset 5}
-	${goto 20}Home${goto 80}${fs_free /home}${goto 150}${fs_used /home}${goto 220}${fs_size /home}${goto 290}${fs_bar /home}
-	${goto 20}Root${goto 80}${fs_free /}${goto 150}${fs_used /}${goto 220}${fs_size /}${goto 290}${fs_bar /}
-	${goto 20}Storage${goto 80}${fs_free /home/davide/HD900}${goto 150}${fs_used /home/davide/HD900}${goto 220}${fs_size /home/davide/HD900}${goto 290}${fs_bar /home/davide/HD900}
-	${color4}${hr 3}${color0}
 	
 	RAM $alignc $mem / $memmax $alignr $memperc%
 	${membar}
