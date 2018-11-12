@@ -54,7 +54,7 @@ conky.text = [[
 	${color4}Processes${goto 120}${color0} ${processes} ($running_processes running)
 	
 	${font DejaVu Sans Monospace:size=10}RAM $alignc $mem / $memmax $alignr $memperc%
-	${membar}
+	${memgraph  FFFF00 FF0000}
 	SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 	${swapbar}
 
