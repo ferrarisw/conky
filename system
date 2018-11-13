@@ -47,23 +47,22 @@ conky.config = {
 
 conky.text = [[
 	${voffset -10}
-	${color4}OS${goto 120}${color0} ${execi 10800 cat /etc/issue.net}
-	${color4}Kernel${goto 120}${color0} ${kernel}
-	${color4}Hostname${goto 120}${color0} ${uid_name 1000} @ ${nodename}
-	${color4}Uptime${goto 120}${color0} ${uptime}
-	${color4}Processes${goto 120}${color0} ${processes} ($running_processes running)
+	${color4}OS${goto 120}${color0} ${execi 10800 cat /etc/issue.net} - ${kernel}
+	${color4}Hostname${goto 120}${color0} ${uid_name 1000} @ ${nodename}		${color4}Uptime	${color0} ${uptime}
 	
-	${font DejaVu Sans Monospace:size=10}RAM $alignc $mem / $memmax $alignr $memperc%
-	${memgraph  FFFF00 FF0000}
+	RAM $alignc $mem / $memmax $alignr $memperc%
+	${membar}
+	${memgraph 00b300 00b300}
 	SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 	${swapbar}
-
+${font DejaVu Sans Monospace:size=10}
 	${top_mem name 1} $alignr ${top_mem mem_res 1}
 	${top_mem name 2} $alignr ${top_mem mem_res 2}
 	${top_mem name 3} $alignr ${top_mem mem_res 3}
 	${top_mem name 4} $alignr ${top_mem mem_res 4}
 	${top_mem name 5} $alignr ${top_mem mem_res 5}
 	${color4}${hr 3}${color0}
+	${color4}Processes${goto 120}${color0} ${processes} ($running_processes running)
 	${voffset -10}
 	${color4}CPU 0${color0}   ${execi 2 sensors|grep 'Core 0'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 1} Ghz${alignr}${cpu cpu0} %${color5} 
 	${cpugraph cpu1 FFFF00 FF0000}
