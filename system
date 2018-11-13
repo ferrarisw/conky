@@ -52,7 +52,7 @@ conky.text = [[
 	
 	RAM $alignc $mem / $memmax $alignr $memperc%
 	${membar}
-	${memgraph 00b300 00b300}
+	${memgraph FFFF00 FF0000 -t}
 	SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 	${swapbar}
 ${font DejaVu Sans Monospace:size=10}
@@ -65,28 +65,28 @@ ${font DejaVu Sans Monospace:size=10}
 	${color4}Processes${goto 120}${color0} ${processes} ($running_processes running)
 	${voffset -10}
 	${color4}CPU 0${color0}   ${execi 2 sensors|grep 'Core 0'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 1} Ghz${alignr}${cpu cpu0} %${color5} 
-	${cpugraph cpu1 FFFF00 FF0000}
+	${cpugraph cpu1 FFFF00 FF0000 -t}
 	${color4}CPU 1${color0}   ${execi 2 sensors|grep 'Core 1'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 2} Ghz${alignr}${cpu cpu1} %${color5} 
-	${cpugraph cpu2 FFFF00 FF0000}
+	${cpugraph cpu2 FFFF00 FF0000 -t}
 	${color4}CPU 2${color0}   ${execi 2 sensors|grep 'Core 2'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 3} Ghz${alignr}${cpu cpu2} %${color5} 
-	${cpugraph cpu3 FFFF00 FF0000}
+	${cpugraph cpu3 FFFF00 FF0000 -t}
 	${color4}CPU 3${color0}   ${execi 2 sensors|grep 'Core 3'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 4} Ghz${alignr}${cpu cpu3} %${color5} 
-	${cpugraph cpu4 FFFF00 FF0000}
+	${cpugraph cpu4 FFFF00 FF0000 -t}
 	${color4}CPU 4${color0}   ${execi 2 sensors|grep 'Core 0'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 5} Ghz${alignr}${cpu cpu4} %${color5} 
-	${cpugraph cpu5 FFFF00 FF0000}
+	${cpugraph cpu5 FFFF00 FF0000 -t}
 	${color4}CPU 5${color0}   ${execi 2 sensors|grep 'Core 1'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 6} Ghz${alignr}${cpu cpu5} %${color5} 
-	${cpugraph cpu6 FFFF00 FF0000}
+	${cpugraph cpu6 FFFF00 FF0000 -t}
 	${color4}CPU 6${color0}   ${execi 2 sensors|grep 'Core 2'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 7} Ghz${alignr}${cpu cpu6} %${color5} 
-	${cpugraph cpu7 FFFF00 FF0000}
+	${cpugraph cpu7 FFFF00 FF0000 -t}
 	${color4}CPU 7${color0}   ${execi 2 sensors|grep 'Core 3'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 8} Ghz${alignr}${cpu cpu7} %${color5} 
-	${cpugraph cpu8 FFFF00 FF0000}${color0}
+	${cpugraph cpu8 FFFF00 FF0000 -t}${color0}
 	${top name 1} $alignr ${top cpu 1} % 
 	${top name 2} $alignr ${top cpu 2} % 
 	${top name 3} $alignr ${top cpu 3} % 
 	${top name 4} $alignr ${top cpu 4} % 
 	${top name 5} $alignr ${top cpu 5} %
 
-${color #76b900}${font DejaVu Sans Monospace:size=16}GPU - ${exec nvidia-smi --query-gpu=gpu_name --format=csv,noheader,nounits}	${hr 4}${color}${font}
+${color 76b900}${font DejaVu Sans Monospace:size=16}GPU - ${exec nvidia-smi --query-gpu=gpu_name --format=csv,noheader,nounits}	${hr 4}${color}${font}
 
 Driver Version${goto 250}${exec nvidia-settings -query [gpu:0]/NvidiaDriverVersion -t} $color
 GPU Temperature ${color}${goto 250}${execi 60 nvidia-settings -query [gpu:0]/GPUCoreTemp -t} °C
