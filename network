@@ -54,17 +54,17 @@ ${if_existing /sys/class/net/wlp6s0/operstate}${font DejaVu Sans Monospace:size=
 WLAN - wlp6s0 - ${exec ip addr show wlp6s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}${font}
 
 Down${goto 80}${downspeed wlp6s0}
-${downspeedgraph wlp6s0 40,500 FF00FF FF0000}
+${downspeedgraph wlp6s0 40,500 FFFF00 FF0000 -t}
 Up${goto 80}${upspeed wlp6s0} 
-${upspeedgraph wlp6s0 40,500 FF00FF FF0000}${endif}
+${upspeedgraph wlp6s0 40,500 FFFF00 FF0000 -t}${endif}
 
 ${if_existing /sys/class/net/enx000ec6c41f01/operstate}${font DejaVu Sans Monospace:size=12}
 LAN - enx000ec6c41f01 - ${exec ip addr show enx000ec6c41f01 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}${font}
 
 Down${goto 80}${downspeed enx000ec6c41f01}
-${downspeedgraph enx000ec6c41f01 40,500 FF00FF FF0000}
+${downspeedgraph enx000ec6c41f01 40,500 FFFF00 FF0000 -t}
 Up${goto 80}${upspeed enx000ec6c41f01} 
-${upspeedgraph enx000ec6c41f01 40,500 FF00FF FF0000}
+${upspeedgraph enx000ec6c41f01 40,500 FFFF00 FF0000 -t}
 ${endif}
 
 ]];
