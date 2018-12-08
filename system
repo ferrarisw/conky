@@ -80,10 +80,10 @@ ${font DejaVu Sans Monospace:size=10}
 	${cpugraph cpu7 FFFF00 FF0000 -t}
 	${color4}CPU 7${color0}   ${execi 2 sensors|grep 'Core 3'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C	${freq_g 8} Ghz${alignr}${cpu cpu7} %${color5} 
 	${cpugraph cpu8 FFFF00 FF0000 -t}${color0}
-	${top name 1} $alignr ${top cpu 1} % 
-	${top name 2} $alignr ${top cpu 2} % 
-	${top name 3} $alignr ${top cpu 3} % 
-	${top name 4} $alignr ${top cpu 4} % 
+	${top name 1} $alignr ${top cpu 1} %
+	${top name 2} $alignr ${top cpu 2} %
+	${top name 3} $alignr ${top cpu 3} %
+	${top name 4} $alignr ${top cpu 4} %
 	${top name 5} $alignr ${top cpu 5} %
 
 ${color 76b900}${font DejaVu Sans Monospace:size=16}GPU - ${exec nvidia-smi --query-gpu=gpu_name --format=csv,noheader,nounits}	${hr 4}${color}${font}

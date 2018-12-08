@@ -42,15 +42,17 @@ conky.config = {
 	color4 = '#0478FF',
 	color5 = '#A40810',
 	colornvidia = '#76b900',
-	};
 	
+	};
+
 conky.text = [[
 ${color4}${font DejaVu Sans Monospace:size=16}NETWORK		${hr 4}
+External IP		${execi 30  wget -q -O- http://ipecho.net/plain; echo} ${font DejaVu Sans Monospace:size=16}
 
+Today ${goto 125}Yesterday ${goto 250}Week ${goto 375}Month ${color green}
+${execi 60 vnstat -i wlp6s0+enx000ec6c41f01+enx000ec6c00081 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}'} ${goto 125}${execi 60 vnstat -i wlp6s0+enx000ec6c41f01+enx000ec6c00081 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}'} ${goto 250}${execi 60 vnstat -i wlp6s0+enx000ec6c41f01+enx000ec6c00081 -w | grep "current week" | awk '{print $9" "substr ($10, 1, 1)}'} ${goto 375}${execi 60 vnstat -i wlp6s0+enx000ec6c41f01+enx000ec6c00081 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}'}
 
-External IP - ${execi 30  wget -q -O- http://ipecho.net/plain; echo}
-
-${if_existing /sys/class/net/wlp6s0/operstate}${font DejaVu Sans Monospace:size=12}
+${color4}${if_existing /sys/class/net/wlp6s0/operstate}${font DejaVu Sans Monospace:size=12}
 WLAN - wlp6s0 - ${exec ip addr show wlp6s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}${font}
 Today ${goto 100}Yesterday ${goto 225}Week ${goto 325}Month ${color green}
 ${execi 60 vnstat -i wlp6s0 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}'} ${goto 100}${execi 60 vnstat -i wlp6s0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}'} ${goto 225}${execi 60 vnstat -i wlp6s0 -w | grep "current week" | awk '{print $9" "substr ($10, 1, 1)}'} ${goto 325}${execi 60 vnstat -i wlp6s0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}'}
@@ -69,5 +71,16 @@ ${color4}Down${goto 80}${downspeed enx000ec6c41f01}
 ${downspeedgraph enx000ec6c41f01 40,500 FFFF00 FF0000 -t}
 Up${goto 80}${upspeed enx000ec6c41f01} 
 ${upspeedgraph enx000ec6c41f01 40,500 FFFF00 FF0000 -t}
+${endif}
+
+${if_existing /sys/class/net/enx000ec6c00081/operstate}${font DejaVu Sans Monospace:size=12}
+ETH - enx000ec6c00081 - ${exec ip addr show enx000ec6c00081 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}${font}
+Today ${goto 100}Yesterday ${goto 225}Week ${goto 325}Month ${color green}
+${execi 60 vnstat -i enx000ec6c00081 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}'} ${goto 100}${execi 60 vnstat -i enx000ec6c00081 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}'} ${goto 225}${execi 60 vnstat -i enx000ec6c00081 -w | grep "current week" | awk '{print $9" "substr ($10, 1, 1)}'} ${goto 325}${execi 60 vnstat -i enx000ec6c00081 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}'}
+
+${color4}Down${goto 80}${downspeed enx000ec6c00081}
+${downspeedgraph enx000ec6c00081 40,500 FFFF00 FF0000 -t}
+Up${goto 80}${upspeed enx000ec6c00081} 
+${upspeedgraph enx000ec6c00081 40,500 FFFF00 FF0000 -t}
 ${endif}
 ]];
