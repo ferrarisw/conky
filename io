@@ -54,33 +54,29 @@ ${color4}${font DejaVu Sans Monospace:size=20}I/O		${hr 4}${font}
 
 ${font DejaVu Sans Monospace:size=16}
 ${color4}	/${font}			${ioscheduler sdb}
-
 Read		${diskio_read sdb1}
-${diskiograph_read sdb1 40,500 FFFF00 FF0000 -t}
+${diskiograph_read sdb1 30,500 FFFF00 FF0000 -t}
 Write		${diskio_write sdb1}
-${diskiograph_write sdb1 40,500 FFFF00 FF0000 -t}
-
+${diskiograph_write sdb1 30,500 FFFF00 FF0000 -t}
+${hr 4}
 ${font DejaVu Sans Monospace:size=16}
 	/home${font}		${ioscheduler sdb}
-
 Read		${diskio_read sdb2}
-${diskiograph_read sdb2 40,500 FFFF00 FF0000 -t}
+${diskiograph_read sdb2 30,500 FFFF00 FF0000 -t}
 Write		${diskio_write sdb2}
-${diskiograph_write sdb2 40,500 FFFF00 FF0000 -t}
-
+${diskiograph_write sdb2 30,500 FFFF00 FF0000 -t}
+${hr 4}
 ${font DejaVu Sans Monospace:size=16}
 	HD900${font}		${ioscheduler sdc}
-
 Read		${diskio_read sdc4}
-${diskiograph_read sdc4 40,500 FFFF00 FF0000 -t}
+${diskiograph_read sdc4 30,500 FFFF00 FF0000 -t}
 Write		${diskio_write sdc4}
-${diskiograph_write sdc4 40,500 FFFF00 FF0000 -t}
-
+${diskiograph_write sdc4 30,500 FFFF00 FF0000 -t}
+${hr 4}
 ${font DejaVu Sans Monospace:size=16}
 	SWAP${font}		${ioscheduler sdc}
-
 Read		${diskio_read sdc1}
-${diskiograph_read sdc1 40,500 FFFF00 FF0000 -t}
+${diskiograph_read sdc1 30,500 FFFF00 FF0000 -t}
 Write		${diskio_write sdc1}
-${diskiograph_write sdc1 40,500 FFFF00 FF0000 -t}
+${diskiograph_write sdc1 30,500 FFFF00 FF0000 -t}
 ]];
