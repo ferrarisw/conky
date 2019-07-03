@@ -1,0 +1,74 @@
+conky.config = {
+	update_interval = 0.5,
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	out_to_console = false,
+	override_utf8_locale = true,
+	double_buffer = true,
+	draw_borders = true,
+	draw_graph_borders = true,
+	draw_outline = true,
+	draw_shades = false,
+	no_buffers = true,
+	text_buffer_size = 32768,
+	imlib_cache_size = 0,
+	own_window = false,
+	own_window_type = 'desktop',
+	own_window_argb_visual = true,
+	own_window_argb_value = 50,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_transparent = true,
+	border_inner_margin = 5,
+	border_outer_margin = 0,
+	xinerama_head = 1,
+	alignment = 'top_right',
+	gap_x = 0,
+	gap_y = 0,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	use_xft = true,
+	font = 'DejaVu Sans Monospace:size=11',
+	xftalpha = 0.8,
+	uppercase = false,
+	default_color = 'white',
+	own_window_colour = '#000000',
+	minimum_width = 500, 
+	minimum_height = 0,
+	
+	color0 = white,
+	color1 = 'EAEAEA',
+	color2 = '06FF1C',
+	color3 = 'D9DFDA',
+	color4 = '0478FF',
+	color2 = 'A40810',
+	};
+
+conky.text = [[
+	${voffset -10}
+	CPU0	${cpugraph cpu1 FFFF00 FF0000 -t}
+	CPU1	${cpugraph cpu2 FFFF00 FF0000 -t}
+	CPU2	${cpugraph cpu3 FFFF00 FF0000 -t}
+	CPU3	${cpugraph cpu4 FFFF00 FF0000 -t}
+	CPU4	${cpugraph cpu5 FFFF00 FF0000 -t}
+	CPU5	${cpugraph cpu6 FFFF00 FF0000 -t}
+	CPU6	${cpugraph cpu7 FFFF00 FF0000 -t}
+	CPU7	${cpugraph cpu8 FFFF00 FF0000 -t}
+	CPU8	${cpugraph cpu1 FFFF00 FF0000 -t}
+	CPU9	${cpugraph cpu2 FFFF00 FF0000 -t}
+	CPU10	${cpugraph cpu3 FFFF00 FF0000 -t}
+	CPU11	${cpugraph cpu4 FFFF00 FF0000 -t}
+	CPU12	${cpugraph cpu5 FFFF00 FF0000 -t}
+	CPU13	${cpugraph cpu6 FFFF00 FF0000 -t}
+	CPU14	${cpugraph cpu7 FFFF00 FF0000 -t}
+	CPU15	${cpugraph cpu8 FFFF00 FF0000 -t}
+	CPU16	${cpugraph cpu1 FFFF00 FF0000 -t}
+	CPU17	${cpugraph cpu2 FFFF00 FF0000 -t}
+	CPU18	${cpugraph cpu3 FFFF00 FF0000 -t}
+	CPU19	${cpugraph cpu4 FFFF00 FF0000 -t}
+	CPU20	${cpugraph cpu5 FFFF00 FF0000 -t}
+	CPU21	${cpugraph cpu6 FFFF00 FF0000 -t}
+	CPU22	${cpugraph cpu7 FFFF00 FF0000 -t}
+	CPU23	${cpugraph cpu8 FFFF00 FF0000 -t}
+]];

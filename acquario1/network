@@ -1,0 +1,77 @@
+conky.config = {
+	update_interval = 0.5,
+	out_to_console = false,
+	override_utf8_locale = true,
+	double_buffer = true,
+	draw_borders = false,
+	draw_graph_borders = true,
+	draw_outline = false,
+	draw_shades = false,
+	no_buffers = true,
+	text_buffer_size = 32768,
+	imlib_cache_size = 0,
+	own_window = false,
+	own_window_type = 'desktop',
+	own_window_argb_visual = true,
+	own_window_argb_value = 50,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_transparent = true,
+	border_inner_margin = 5,
+	border_outer_margin = 0,
+	xinerama_head = 1,
+	alignment = 'bottom_middle',
+	gap_x = 0,
+	gap_y = 0,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	use_xft = true,
+	font = 'DejaVu Sans Monospace:size=10',
+	xftalpha = 0.8,
+	uppercase = false,
+	default_color = 'white',
+	own_window_colour = '#000000',
+	minimum_width = 500, 
+	minimum_height = 0,
+	
+	color0 = '#FFFFFF',
+	color1 = '#EAEAEA',
+	color2 = '#06FF1C',
+	color3 = '#D9DFDA',
+	color4 = '#0478FF',
+	color5 = '#A40810',	
+	};
+
+
+
+conky.text = [[
+		${voffset -10}
+	${color4}OS	${color0} ${execi 10800 cat /etc/issue.net} - ${kernel}
+	${color4}Hostname	${color0} ${uid_name 1000} @ ${nodename}		${color4}Uptime	${color0} ${uptime}
+	
+	RAM $alignc $mem / $memmax $alignr $memperc%
+	${membar}
+	${memgraph FFFF00 FF0000 -t}
+	SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
+	${swapbar}
+	${font DejaVu Sans Monospace:size=10}
+	${color4}Processes	${color0} ${processes} ($running_processes running)
+
+	${top_mem name 1} $alignr ${top_mem mem_res 1}
+	${top_mem name 2} $alignr ${top_mem mem_res 2}
+	${top_mem name 3} $alignr ${top_mem mem_res 3}
+	${top_mem name 4} $alignr ${top_mem mem_res 4}
+	${top_mem name 5} $alignr ${top_mem mem_res 5}
+
+${color4}${font DejaVu Sans Monospace:size=14}NETWORK		${hr 4}
+External IP		${execi 30  wget -q -O- http://ipecho.net/plain; echo} ${font DejaVu Sans Monospace:size=14}
+${if_existing /sys/class/net/enp5s0/operstate}${font DejaVu Sans Monospace:size=12}
+Ethernet - ${exec ip addr show enp5s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1} ${hr 2}${font}
+${color4}Down		${downspeed enp5s0}
+${downspeedgraph enp5s0 40,500 FFFF00 FF0000 -t}
+Up		${upspeed enp5s0} 
+${upspeedgraph enp5s0 40,500 FFFF00 FF0000 -t}
+${endif}
+
+]];

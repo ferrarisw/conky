@@ -1,0 +1,90 @@
+conky.config = {
+	update_interval = 0.5,
+	out_to_console = false,
+	override_utf8_locale = true,
+	double_buffer = true,
+	draw_borders = false,
+	draw_graph_borders = true,
+	draw_outline = false,
+	draw_shades = false,
+	no_buffers = true,
+	text_buffer_size = 32768,
+	imlib_cache_size = 0,
+	own_window = false,
+	own_window_type = 'desktop',
+	own_window_argb_visual = false,
+	own_window_argb_value = 50,
+	own_window_hints = 'below,sticky,undecorated,skip_taskbar,skip_pager',
+	own_window_transparent = true,
+	border_inner_margin = 5,
+	border_outer_margin = 0,
+	xinerama_head = 1,
+	alignment = 'top_left',
+	gap_x = 10,
+	gap_y = -10,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	use_xft = true,
+	font = 'DejaVu Sans Monospace:size=10',
+	xftalpha = 0.8,
+	uppercase = false,
+	default_color = 'white',
+	own_window_colour = '#000000',
+	minimum_width = 500, 
+	minimum_height = 0,
+	
+	color0 = '#FFFFFF',
+	color1 = '#EAEAEA',
+	color2 = '#06FF1C',
+	color3 = '#D9DFDA',
+	color4 = '#0478FF',
+	color2 = '#A40810',
+	};
+	
+conky.text = [[
+
+${color4}${font DejaVu Sans Monospace:size=18}I/O		${hr 4}${font}
+
+	${goto 80}FREE${goto 150}USED${goto 220}TOTAL${goto 290}USAGE${color1}${voffset 5}
+	${goto 20}Home${goto 80}${fs_free /home}${goto 150}${fs_used /home}${goto 220}${fs_size /home}${goto 290}${fs_bar /home}
+	${goto 20}Root${goto 80}${fs_free /}${goto 150}${fs_used /}${goto 220}${fs_size /}${goto 290}${fs_bar /}
+	${goto 20}Data${goto 80}${fs_free /mnt/data}${goto 150}${fs_used /mnt/data}${goto 220}${fs_size /mnt/data}${goto 290}${fs_bar /mnt/data}
+	${goto 20}Var${goto 80}${fs_free /var}${goto 150}${fs_used /var}${goto 220}${fs_size /var}${goto 290}${fs_bar /var}
+
+${font DejaVu Sans Monospace:size=16}
+${color4}	/${font}
+Read		${diskio_read nvme0n1p2}
+${diskiograph_read nvme0n1p2 25,500 FFFF00 FF0000 -t}
+Write		${diskio_write nvme0n1p2}
+${diskiograph_write nvme0n1p2 25,500 FFFF00 FF0000 -t}
+${hr 4}
+${font DejaVu Sans Monospace:size=16}
+${color4}	/home${font}
+Read		${diskio_read nvme0n1p3}
+${diskiograph_read nvme0n1p3 25,500 FFFF00 FF0000 -t}
+Write		${diskio_write nvme0n1p3}
+${diskiograph_write nvme0n1p3 25,500 FFFF00 FF0000 -t}
+${hr 4}
+${font DejaVu Sans Monospace:size=16}
+	/mnt/data${font}
+Read		${diskio_read sda3}
+${diskiograph_read sda3 25,500 FFFF00 FF0000 -t}
+Write		${diskio_write sda3}
+${diskiograph_write sda3 25,500 FFFF00 FF0000 -t}
+${hr 4}
+${font DejaVu Sans Monospace:size=16}
+	/var${font}
+Read		${diskio_read sda2}
+${diskiograph_read sda2 25,500 FFFF00 FF0000 -t}
+Write		${diskio_write sda2}
+${diskiograph_write sda2 25,500 FFFF00 FF0000 -t}
+${hr 4}
+${font DejaVu Sans Monospace:size=16}
+	SWAP${font}
+Read		${diskio_read sda1}
+${diskiograph_read sda1 25,500 FFFF00 FF0000 -t}
+Write		${diskio_write sda1}
+${diskiograph_write sda1 25,500 FFFF00 FF0000 -t}
+]];
